@@ -15,7 +15,7 @@ from discord.ext import commands
 # Change these index if you want
 
 # YOUR BOT TOKEN ( get it at https://discord.com/developers/applications):
-token = "MTE5MTI3MDYyMzcwODcyMTE4Mg.GVw9Eu.boGms9R2ERny-UFOtqL2tnod3LTnbNgSadP5tw"
+token = "YourBotToken"
 
 twitch = "https://twitch.tv/LynoConfigs" # your twitch profile
 
